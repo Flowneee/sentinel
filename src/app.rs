@@ -35,7 +35,9 @@ pub(crate) fn load_env_config() -> GlobalConfig {
         Err(e) => panic!("{}", e),
     };
     let file = File::open(path).unwrap();
-    serde_yaml::from_reader(file).unwrap()
+    let yaml_value = serde_yaml::from_reader::<_, serde_yaml::Value>(file).unwrap();
+    let merged_value = yaml_merge_keys::merge_keys_serde(yaml_value).unwrap();
+    serde_yaml::from_value(merged_value).unwrap()
 }
 
 #[derive(Clone, Debug, Deserialize)]

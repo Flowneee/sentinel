@@ -10,17 +10,20 @@ tokio = "0.1"
 tokio-threadpool = "0.1"
 tokio-timer = "0.2"
 either = "1.5"
+libc = "0.2"
 log = "0.4"
 env_logger = "0.6"
 lazy_static = "1.3"
 chrono = "0.4"
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.8"
+yaml-merge-keys = { version = "0.3.0", features = ["serde_yaml"] }
 failure = "0.1.5"
 
 # Sentinel's dependencies
 sysinfo = "0.8.4"
 reqwest = "0.9.17"
+errno = "0.2.4"
 
 # Messenger's dependencies
 lettre = "0.9"
